@@ -20,9 +20,11 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 .content{background:#0a0a14;padding:1rem .75rem 3rem;}
 .section-header{font-family:'Cinzel',serif;color:var(--gold);font-size:.75rem;letter-spacing:.2em;text-align:center;margin:1.5rem 0 1rem;}
+
+/* DAY CARD */
 .day-card{background:var(--parchment);border-radius:12px;margin-bottom:1.5rem;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.5);}
 .day-header{padding:1rem 1.25rem .75rem;position:relative;}
-.day-date{font-family:'Cinzel',serif;font-size:.75rem;font-weight:600;letter-spacing:.12em;margin-bottom:.25rem;}
+.day-date{font-family:'Cinzel',serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;margin-bottom:.2rem;}
 .day-title{font-family:'Cinzel',serif;font-size:1.2rem;font-weight:700;line-height:1.3;}
 .day-subtitle{font-size:.82rem;font-style:italic;margin-top:.2rem;opacity:.75;}
 .day-badge{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
@@ -33,31 +35,78 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
 .d4 .day-header{background:linear-gradient(135deg,#2a1a3e,#3a2050);color:#d0b0f0;}
 .d5 .day-header{background:linear-gradient(135deg,#3e1a1a,#5a2020);color:#f0d0a0;}
 .d6 .day-header{background:linear-gradient(135deg,#1a3a2e,#1a4a38);color:#90e0c0;}
-.day-body{padding:1rem 1.25rem;}
-.route-block{display:flex;align-items:center;flex-wrap:wrap;gap:.28rem;margin-bottom:.32rem;padding:.38rem .6rem;border-radius:8px;background:rgba(255,255,255,.6);border:1px solid rgba(44,24,16,.1);font-size:.74rem;}
+.day-body{padding:.75rem 1rem 1rem;}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:70px;}
+.tl-item{position:relative;padding-bottom:.1rem;}
+.tl-item:last-child .tl-line{display:none;}
+
+/* time label */
+.tl-time{
+  position:absolute;left:-66px;width:58px;
+  text-align:right;
+  font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;
+  color:var(--gold2);line-height:1.2;
+  top:.05rem;
+  padding-right:4px;
+}
+/* dot */
+.tl-dot{
+  position:absolute;left:-16px;top:.18rem;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--gold2);border:2px solid var(--parchment);
+  box-shadow:0 0 0 2px var(--gold2);
+  z-index:1;
+}
+.tl-dot.depart{background:var(--red);box-shadow:0 0 0 2px var(--red);}
+.tl-dot.route{background:#aaa;box-shadow:0 0 0 1px #aaa;width:6px;height:6px;left:-14px;top:.25rem;}
+
+/* vertical line */
+.tl-line{
+  position:absolute;left:-11px;top:1.2rem;bottom:0;
+  width:2px;background:rgba(166,124,0,.25);
+}
+.tl-item.route-item .tl-line{background:rgba(150,150,150,.2);}
+
+/* content */
+.tl-content{padding:.1rem 0 .8rem 0;}
+.place-name{font-weight:700;font-size:.95rem;color:var(--ink);line-height:1.3;}
+.place-name.highlight{
+  font-size:1.05rem;font-weight:700;color:var(--ink);
+  border-left:3px solid var(--gold2);
+  padding-left:.5rem;margin-left:-.5rem;
+  background:rgba(201,162,39,.08);
+  border-radius:0 5px 5px 0;
+  padding-top:.15rem;padding-bottom:.15rem;
+}
+.place-note{font-size:.78rem;color:var(--ink2);font-style:italic;margin-top:.15rem;line-height:1.4;}
+.shop-row{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.35rem;}
+.shop-tag{background:rgba(201,162,39,.18);border:1px solid rgba(166,124,0,.4);color:var(--gold2);font-size:.67rem;padding:.1rem .4rem;border-radius:4px;font-weight:600;}
+.shop-tag.yen{background:rgba(180,50,50,.1);border-color:rgba(139,26,26,.3);color:var(--red);}
+
+/* route block inside timeline */
+.route-block{
+  display:flex;align-items:center;flex-wrap:wrap;gap:.25rem;
+  padding:.3rem .55rem;border-radius:7px;
+  background:rgba(255,255,255,.55);border:1px solid rgba(44,24,16,.1);
+  font-size:.71rem;margin-top:.1rem;
+}
 .route-block.alt{background:rgba(33,104,178,.06);border-color:rgba(33,104,178,.2);}
-.ln{display:inline-flex;align-items:center;gap:.2rem;padding:.15rem .5rem;border-radius:20px;font-weight:700;font-size:.7rem;color:#fff;white-space:nowrap;}
+.ln{display:inline-flex;align-items:center;padding:.12rem .45rem;border-radius:20px;font-weight:700;font-size:.68rem;color:#fff;white-space:nowrap;}
 .ln-G{background:#f97a00;}.ln-H{background:#9dc0d8;color:#1a1a1a;}.ln-JY{background:#9acd32;color:#1a1a1a;}
 .ln-E{background:#b5007f;}.ln-U{background:#0097d6;}.ln-SK{background:#be0026;}
 .ln-KK{background:#0f6ab4;}.ln-NS{background:#e85b1a;}.ln-SW{background:#0057a8;}
 .ln-TB{background:#2168b2;}.ln-W{background:#5a7a5a;}
-.r-station{font-weight:700;font-size:.76rem;color:var(--ink);}
-.r-exit{font-size:.64rem;color:#666;background:rgba(0,0,0,.07);padding:.07rem .28rem;border-radius:3px;}
-.r-arrow{color:#999;font-size:.7rem;flex-shrink:0;}
-.r-meta{font-size:.68rem;color:var(--red);font-weight:700;white-space:nowrap;}
-.transfer-hint{font-size:.66rem;color:#888;padding-left:.2rem;margin:.1rem 0 .2rem;}
-.s-item{padding:.55rem 0;border-bottom:1px dashed rgba(44,24,16,.13);}
-.s-item:last-child{border-bottom:none;}
-.item-row{display:flex;gap:.6rem;align-items:flex-start;}
-.time-badge{background:var(--ink);color:var(--parchment);font-family:'Cinzel',serif;font-size:.62rem;padding:.18rem .4rem;border-radius:4px;white-space:nowrap;flex-shrink:0;margin-top:.18rem;}
-.place-name{font-weight:700;font-size:.95rem;color:var(--ink);line-height:1.3;}
-.place-note{font-size:.8rem;color:var(--ink2);font-style:italic;margin-top:.1rem;}
-.shop-row{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.35rem;}
-.shop-tag{background:rgba(201,162,39,.18);border:1px solid rgba(166,124,0,.4);color:var(--gold2);font-size:.68rem;padding:.1rem .4rem;border-radius:4px;font-weight:600;}
-.shop-tag.yen{background:rgba(180,50,50,.1);border-color:rgba(139,26,26,.3);color:var(--red);}
-.tip-box{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.35);border-radius:8px;padding:.65rem 1rem;margin-top:.75rem;}
-.tip-title{font-family:'Cinzel',serif;font-size:.68rem;color:var(--gold2);letter-spacing:.1em;margin-bottom:.35rem;}
-.tip-text{font-size:.8rem;color:var(--ink2);font-style:italic;}
+.r-station{font-weight:700;font-size:.73rem;color:var(--ink);}
+.r-exit{font-size:.62rem;color:#666;background:rgba(0,0,0,.07);padding:.06rem .25rem;border-radius:3px;}
+.r-arrow{color:#aaa;font-size:.68rem;flex-shrink:0;}
+.r-meta{font-size:.67rem;color:var(--red);font-weight:700;white-space:nowrap;}
+.transfer-row{font-size:.65rem;color:#888;margin:.15rem 0 .1rem .1rem;}
+
+.tip-box{background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.35);border-radius:8px;padding:.6rem .9rem;margin-top:.5rem;}
+.tip-title{font-family:'Cinzel',serif;font-size:.67rem;color:var(--gold2);letter-spacing:.1em;margin-bottom:.3rem;}
+.tip-text{font-size:.78rem;color:var(--ink2);font-style:italic;}
 .ornament{text-align:center;color:var(--gold);font-size:1.2rem;margin:1.5rem 0 1rem;opacity:.5;letter-spacing:.3em;}
 </style>
 </head>
@@ -74,7 +123,7 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
 <div class="content">
 <div class="section-header">✦ 行程詳覽 ✦</div>
 
-<!-- DAY 0 抵達 8/25 二 -->
+<!-- ══ DAY 0 8/25 ══ -->
 <div class="day-card d0">
   <div class="day-header">
     <div class="day-date">08月25日（二）</div>
@@ -83,24 +132,42 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
     <div class="day-badge">🌙</div>
   </div>
   <div class="day-body">
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">20:00</span><div>
-        <div class="place-name">成田機場 抵達</div>
-        <div class="place-note">提領行李・辦 Suica IC 卡・兌換日幣</div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-SK">Skyliner 特急</span>
-        <span class="r-station">成田空港</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">上野</span><span class="r-exit">京成線 改札口 出</span>
-        <span class="r-meta">41分・¥2,570</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">20:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">成田機場 抵達</div>
+          <div class="place-note">提領行李・辦 Suica IC 卡・兌換日幣</div>
+        </div>
       </div>
-      <div class="item-row"><span class="time-badge">21:45</span><div>
-        <div class="place-name">抵達 Hop Inn 上野</div>
-        <div class="place-note">不忍口（西口）出站 → 步行約5分・上野 6 丁目</div>
-      </div></div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-SK">Skyliner 特急</span>
+            <span class="r-station">成田空港</span><span class="r-arrow">→</span>
+            <span class="r-station">上野</span><span class="r-exit">京成改札口 出</span>
+            <span class="r-meta">41分・¥2,570</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">21:45</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">抵達 Hop Inn 上野</div>
+          <div class="place-note">不忍口（西口）出站 → 步行約5分・上野 6 丁目</div>
+        </div>
+      </div>
+
     </div>
     <div class="tip-box">
       <div class="tip-title">🌙 入住提示</div>
@@ -109,157 +176,232 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
   </div>
 </div>
 
-<!-- DAY 1 8/26 三 → 哈利波特 + 池袋 -->
+<!-- ══ DAY 1 8/26 三 哈利波特 ══ -->
 <div class="day-card d1">
   <div class="day-header">
-    <div class="day-date">08月26日（三）· 🚪 出門 08:20</div>
+    <div class="day-date">08月26日（三）</div>
     <div class="day-title">魔法體驗之日</div>
     <div class="day-subtitle">哈利波特影城 · 池袋百元店攻略</div>
     <div class="day-badge">⚡</div>
   </div>
   <div class="day-body">
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-E">都營大江戸線 E</span>
-        <span class="r-station">上野御徒町</span><span class="r-exit">飯店步行5分</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">豊島園（Toshimaen）</span><span class="r-exit">改札出・影城直達</span>
-        <span class="r-meta">約30分・直達不換車</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">08:20</div>
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">🚪 飯店出發</div>
+          <div class="place-note">步行5分 → 上野御徒町駅</div>
+        </div>
       </div>
-      <div class="item-row"><span class="time-badge">09:00</span><div>
-        <div class="place-name">哈利波特 Warner Bros. Studio Tokyo</div>
-        <div class="place-note">⚠️ 暑假至少3週前預約・建議遊覽3–4小時</div>
-        <div class="shop-row">
-          <span class="shop-tag">🍺 奶油啤酒 Butterbeer</span>
-          <span class="shop-tag">🪄 禁忌森林區 Forbidden Forest</span>
-          <span class="shop-tag">🦉 角色周邊</span>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-E">都營大江戸線 E</span>
+            <span class="r-station">上野御徒町</span><span class="r-arrow">→</span>
+            <span class="r-station">豊島園（Toshimaen）</span><span class="r-exit">E36・影城直達</span>
+            <span class="r-meta">約30分・直達</span>
+          </div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-SW">西武池袋線 Seibu</span>
-        <span class="r-station">豊島園（Toshimaen）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">池袋（Ikebukuro）</span><span class="r-exit">東口・Sunshine City 步行5分</span>
-        <span class="r-meta">約20分・¥220</span>
       </div>
-      <div class="item-row"><span class="time-badge">13:30</span><div>
-        <div class="place-name">池袋 Sunshine City 周邊・午餐</div>
-        <div class="place-note">動漫・百貨・美食</div>
-        <div class="shop-row">
-          <span class="shop-tag">🏬 Sunshine City 陽光城</span>
-          <span class="shop-tag">🏬 東武百貨店 Tobu Dept.</span>
-          <span class="shop-tag">🏬 西武百貨店 Seibu Dept.</span>
-          <span class="shop-tag">🎮 Animate 動漫專門店 本店</span>
+
+      <div class="tl-item">
+        <div class="tl-time">09:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name highlight">哈利波特 Warner Bros. Studio Tokyo</div>
+          <div class="place-note">⚠️ 暑假至少3週前預約・建議遊覽3–4小時</div>
+          <div class="shop-row">
+            <span class="shop-tag">🍺 奶油啤酒 Butterbeer</span>
+            <span class="shop-tag">🪄 禁忌森林 Forbidden Forest</span>
+            <span class="shop-tag">🦉 角色周邊</span>
+          </div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">15:30</span><div>
-        <div class="place-name">DAISO 池袋東武店（東武百貨 6F）</div>
-        <div class="place-note">都內最大級旗艦・DAISO＋Standard Products＋THREEPPY 三合一・約50,000種商品</div>
-        <div class="shop-row">
-          <span class="shop-tag yen">¥100 DAISO 大創</span>
-          <span class="shop-tag yen">¥300~ Standard Products</span>
-          <span class="shop-tag yen">¥330 THREEPPY 三皮</span>
-          <span class="shop-tag">💜 推し活（應援）コーナー</span>
-        </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">同區域</span><div>
-        <div class="place-name">池袋 3COINS 百元雜貨 地圖</div>
-        <div class="place-note">東武 6F 出來後步行5分內可串完以下3間</div>
-        <div class="shop-row">
-          <span class="shop-tag yen">🛒 3COINS+plus ルミネ池袋店（西口 Lumine 5F）・都內超大型店</span>
-        </div>
-        <div class="shop-row">
-          <span class="shop-tag yen">🛒 3COINS 池袋ショッピングパーク店（池袋駅25號出口・即達）</span>
-        </div>
-        <div class="shop-row">
-          <span class="shop-tag yen">🛒 3COINS 池袋サンシャインシティ店（Sunshine City AlpaB1F）</span>
-        </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-JY">JR 山手線 Yamanote</span>
-        <span class="r-station">池袋（Ikebukuro）</span><span class="r-exit">JR 改札</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">上野（Ueno）</span>
-        <span class="r-meta">約25分・¥220</span>
       </div>
-      <div class="item-row"><span class="time-badge">18:30</span><div>
-        <div class="place-name">返回上野・晚餐</div>
-      </div></div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-SW">西武池袋線 Seibu</span>
+            <span class="r-station">豊島園</span><span class="r-arrow">→</span>
+            <span class="r-station">池袋（Ikebukuro）</span><span class="r-exit">東口</span>
+            <span class="r-meta">約20分・¥220</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">13:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">池袋 Sunshine City 周邊・午餐</div>
+          <div class="shop-row">
+            <span class="shop-tag">🏬 Sunshine City 陽光城</span>
+            <span class="shop-tag">🏬 東武百貨 Tobu Dept.</span>
+            <span class="shop-tag">🏬 西武百貨 Seibu Dept.</span>
+            <span class="shop-tag">🎮 Animate 動漫本店</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">15:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">DAISO 池袋東武店（東武百貨 6F）</div>
+          <div class="place-note">都內最大級旗艦・約50,000種商品</div>
+          <div class="shop-row">
+            <span class="shop-tag yen">¥100 DAISO 大創</span>
+            <span class="shop-tag yen">¥300~ Standard Products</span>
+            <span class="shop-tag yen">¥330 THREEPPY</span>
+          </div>
+          <div class="shop-row" style="margin-top:.3rem;">
+            <span class="shop-tag yen">🛒 3COINS+plus ルミネ池袋 5F（西口・都內超大型）</span>
+          </div>
+          <div class="shop-row">
+            <span class="shop-tag yen">🛒 3COINS 池袋ショッピングパーク（25號出口即達）</span>
+          </div>
+          <div class="shop-row">
+            <span class="shop-tag yen">🛒 3COINS Sunshine City AlpaB1F</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-JY">JR 山手線 Yamanote</span>
+            <span class="r-station">池袋</span><span class="r-arrow">→</span>
+            <span class="r-station">上野（Ueno）</span>
+            <span class="r-meta">約25分・¥220</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">18:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">返回上野・晚餐</div>
+        </div>
+      </div>
+
     </div>
     <div class="tip-box">
       <div class="tip-title">⚡ 巫師提示</div>
-      <div class="tip-text">大江戸線從上野御徒町直達豊島園，進出站快！影城結束搭西武線去池袋，一條龍逛完所有百元店，3COINS+plus ルミネ店是都內少數超大型店，品項最齊。</div>
+      <div class="tip-text">大江戸線從上野御徒町直達豊島園，進出站快！影城結束搭西武線去池袋，3COINS+plus ルミネ店是都內少數超大型店，品項最齊。</div>
     </div>
   </div>
 </div>
 
-<!-- DAY 2 8/27 四 → 大宮鐵道 -->
+<!-- ══ DAY 2 8/27 四 大宮 ══ -->
 <div class="day-card d2">
   <div class="day-header">
-    <div class="day-date">08月27日（四）· 🚪 出門 08:40</div>
+    <div class="day-date">08月27日（四）</div>
     <div class="day-title">鐵道大日</div>
     <div class="day-subtitle">大宮 鐵道博物館 Railway Museum</div>
     <div class="day-badge">🚂</div>
   </div>
   <div class="day-body">
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-KK">JR 京浜東北線 Keihin-Tohoku</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">JR 中央改札</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">大宮（Omiya）</span><span class="r-exit">新交通 New Shuttle 乘換口</span>
-        <span class="r-meta">40分・¥580</span>
-      </div>
-      <div class="transfer-hint">乘換 ↓</div>
-      <div class="route-block">
-        <span class="ln ln-NS">ニューシャトル New Shuttle</span>
-        <span class="r-station">大宮（Omiya）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">鉄道博物館（Railway Museum）</span><span class="r-exit">直達出口</span>
-        <span class="r-meta">2分・¥160</span>
-      </div>
-      <div class="item-row"><span class="time-badge">09:30</span><div>
-        <div class="place-name">大宮 鉄道博物館 Railway Museum</div>
-        <div class="place-note">平日前往排隊最短・出站即到</div>
-        <div class="shop-row">
-          <span class="shop-tag">🚄 新幹線模擬駕駛台 Shinkansen Simulator</span>
-          <span class="shop-tag">🚂 D51 蒸汽火車 Steam Loco</span>
-          <span class="shop-tag">🛤 迷你小火車 Mini Train</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">08:40</div>
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">🚪 飯店出發</div>
+          <div class="place-note">步行 → 上野駅 JR 中央改札</div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-NS">ニューシャトル New Shuttle</span>
-        <span class="r-station">鉄道博物館（Railway Museum）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">大宮（Omiya）</span>
-        <span class="r-meta">2分</span>
       </div>
-      <div class="transfer-hint">乘換 ↓</div>
-      <div class="route-block">
-        <span class="ln ln-KK">JR 京浜東北線 Keihin-Tohoku</span>
-        <span class="r-station">大宮（Omiya）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">上野（Ueno）</span>
-        <span class="r-meta">40分・¥580</span>
-      </div>
-      <div class="item-row"><span class="time-badge">17:00</span><div>
-        <div class="place-name">返回上野・晚餐</div>
-        <div class="place-note">或在大宮站內先用餐再回</div>
-        <div class="shop-row">
-          <span class="shop-tag">🏬 エキュート大宮 ecute（大宮駅構內・駅弁・美食）</span>
-          <span class="shop-tag">🏬 ルミネ大宮 Lumine（大宮駅直結・餐廳）</span>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-KK">JR 京浜東北線 Keihin-Tohoku</span>
+            <span class="r-station">上野</span><span class="r-arrow">→</span>
+            <span class="r-station">大宮（Omiya）</span><span class="r-exit">New Shuttle 乘換口</span>
+            <span class="r-meta">40分・¥580</span>
+          </div>
+          <div class="transfer-row">乘換 ↓</div>
+          <div class="route-block">
+            <span class="ln ln-NS">ニューシャトル New Shuttle</span>
+            <span class="r-station">大宮</span><span class="r-arrow">→</span>
+            <span class="r-station">鉄道博物館（Railway Museum）</span><span class="r-exit">直達出口</span>
+            <span class="r-meta">2分・¥160</span>
+          </div>
         </div>
-      </div></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">09:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name highlight">大宮 鉄道博物館 Railway Museum</div>
+          <div class="place-note">平日前往排隊最短・出站即到</div>
+          <div class="shop-row">
+            <span class="shop-tag">🚄 新幹線模擬駕駛台 Shinkansen Simulator</span>
+            <span class="shop-tag">🚂 D51 蒸汽火車 Steam Loco</span>
+            <span class="shop-tag">🛤 迷你小火車 Mini Train</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-NS">ニューシャトル New Shuttle</span>
+            <span class="r-station">鉄道博物館</span><span class="r-arrow">→</span>
+            <span class="r-station">大宮</span>
+            <span class="r-meta">2分</span>
+          </div>
+          <div class="transfer-row">乘換 ↓</div>
+          <div class="route-block">
+            <span class="ln ln-KK">JR 京浜東北線</span>
+            <span class="r-station">大宮</span><span class="r-arrow">→</span>
+            <span class="r-station">上野</span>
+            <span class="r-meta">40分・¥580</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">17:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">返回上野・晚餐</div>
+          <div class="place-note">或在大宮先用餐再回</div>
+          <div class="shop-row">
+            <span class="shop-tag">🏬 エキュート大宮 ecute（站內美食）</span>
+            <span class="shop-tag">🏬 ルミネ大宮 Lumine（站直結）</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="tip-box">
       <div class="tip-title">🚂 策略提示</div>
@@ -268,331 +410,499 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
   </div>
 </div>
 
-<!-- DAY 3 8/28 五 → KidZania + Small Worlds -->
+<!-- ══ DAY 3 8/28 五 KidZania ══ -->
 <div class="day-card d3">
   <div class="day-header">
-    <div class="day-date">08月28日（五）· 🚪 出門 07:10</div>
+    <div class="day-date">08月28日（五）</div>
     <div class="day-title">職人體驗之日</div>
     <div class="day-subtitle">KidZania · Small Worlds · 上野採買</div>
     <div class="day-badge">👷</div>
   </div>
   <div class="day-body">
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-H">東京Metro 日比谷線 H</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">H17・日比谷線 改札</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">豊洲（Toyosu）</span><span class="r-exit">H14・3號出口（KidZania 直達）</span>
-        <span class="r-meta">20分・¥240・直達</span>
-      </div>
-      <div class="item-row"><span class="time-badge">07:40</span><div>
-        <div class="place-name">KidZania 東京（豊洲 Toyosu）</div>
-        <div class="place-note">📋 第1部 09:00–15:00｜大人×2・小孩×2<br>⏰ 07:40 門口報到 → 08:30 入場 → 09:00 體驗開始<br>📍 〒135-8614 東京都江東区豊洲2-4-9</div>
-        <div class="shop-row">
-          <span class="shop-tag">✈️ 機長 Pilot 體驗</span>
-          <span class="shop-tag">🍕 Pizza 廚師</span>
-          <span class="shop-tag">🏥 醫生・消防員</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">07:10</div>
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">🚪 飯店出發</div>
+          <div class="place-note">步行 → 上野駅 日比谷線 改札</div>
         </div>
-        <div style="margin-top:.5rem;">
-          <a href="https://d3e8ogs60q6bjk.cloudfront.net/file/agents/voucher/A2608035003/voucher_T4-05638-1385434916093920_2026-08-03.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;background:#2c1810;color:#f5e6c8;font-family:'Cinzel',serif;font-size:.68rem;padding:.3rem .7rem;border-radius:6px;text-decoration:none;font-weight:600;">🎟 入場憑證 Voucher PDF</a>
-        </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-U">百合海鷗號 Yurikamome</span>
-        <span class="r-station">豊洲（Toyosu）</span><span class="r-exit">ゆりかもめ 乘換口</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">有明テニスの森（Ariake Tennis）</span><span class="r-exit">U16・出站步行3分</span>
-        <span class="r-meta">約6分・¥189</span>
       </div>
-      <div class="item-row"><span class="time-badge">14:30</span><div>
-        <div class="place-name">Small Worlds TOKYO（有明 Ariake）</div>
-        <div class="place-note">亞洲最大級室內迷你博物館・全天候屋內・建議遊覽2小時</div>
-        <div class="shop-row">
-          <span class="shop-tag">✈️ 關西機場 Kansai Airport 區</span>
-          <span class="shop-tag">🚀 宇宙中心 Space Center 區</span>
-          <span class="shop-tag">🌏 世界街景 World Streets 區</span>
-          <span class="shop-tag">🌙 美少女戰士 Sailor Moon 區</span>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-H">東京Metro 日比谷線 H</span>
+            <span class="r-station">上野</span><span class="r-exit">H17</span><span class="r-arrow">→</span>
+            <span class="r-station">豊洲</span><span class="r-exit">H14・3號出口（KidZania 直達）</span>
+            <span class="r-meta">20分・¥240</span>
+          </div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-U">百合海鷗號 Yurikamome</span>
-        <span class="r-station">有明テニスの森（Ariake Tennis）</span><span class="r-exit">U16</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">豊洲（Toyosu）</span><span class="r-exit">H14・乘換 日比谷線</span>
-        <span class="r-meta">約6分・¥189</span>
       </div>
-      <div class="transfer-hint">乘換 ↓</div>
-      <div class="route-block">
-        <span class="ln ln-H">東京Metro 日比谷線 H</span>
-        <span class="r-station">豊洲（Toyosu）</span><span class="r-exit">H14</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">H17・3號出口 → 阿美橫丁</span>
-        <span class="r-meta">20分・¥240</span>
-      </div>
-      <div class="item-row"><span class="time-badge">17:30</span><div>
-        <div class="place-name">阿美橫丁 Ameyoko 採買</div>
-        <div class="place-note">藥妝・零食・生鮮，距飯店步行3分</div>
-        <div class="shop-row">
-          <span class="shop-tag">💊 松本清 Matsumoto Kiyoshi</span>
-          <span class="shop-tag">🍬 二木の菓子 Futaki Candy</span>
-          <span class="shop-tag">🏬 多慶屋 Takeyashop（免稅）</span>
+
+      <div class="tl-item">
+        <div class="tl-time">07:40</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name highlight">KidZania 東京（豊洲 Toyosu）</div>
+          <div class="place-note">📋 第1部 09:00–15:00｜大人×2・小孩×2<br>⏰ 07:40 門口報到 → 08:30 入場 → 09:00 體驗開始<br>📍 〒135-8614 東京都江東区豊洲2-4-9</div>
+          <div class="shop-row">
+            <span class="shop-tag">✈️ 機長 Pilot</span>
+            <span class="shop-tag">🍕 Pizza 廚師</span>
+            <span class="shop-tag">🏥 醫生・消防員</span>
+          </div>
+          <div style="margin-top:.5rem;">
+            <a href="https://d3e8ogs60q6bjk.cloudfront.net/file/agents/voucher/A2608035003/voucher_T4-05638-1385434916093920_2026-08-03.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;background:#2c1810;color:#f5e6c8;font-family:'Cinzel',serif;font-size:.68rem;padding:.3rem .7rem;border-radius:6px;text-decoration:none;font-weight:600;">🎟 入場憑證 Voucher PDF</a>
+          </div>
         </div>
-      </div></div>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-U">百合海鷗號 Yurikamome</span>
+            <span class="r-station">豊洲</span><span class="r-arrow">→</span>
+            <span class="r-station">有明テニスの森（Ariake Tennis）</span><span class="r-exit">U16・步行3分</span>
+            <span class="r-meta">約6分・¥189</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">15:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">Small Worlds TOKYO（有明 Ariake）</div>
+          <div class="place-note">亞洲最大級室內迷你博物館・全天候屋內・建議2小時</div>
+          <div class="shop-row">
+            <span class="shop-tag">✈️ 關西機場 Kansai Airport 區</span>
+            <span class="shop-tag">🚀 宇宙中心 Space Center 區</span>
+            <span class="shop-tag">🌏 世界街景 World Streets 區</span>
+            <span class="shop-tag">🌙 美少女戰士 Sailor Moon 區</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-U">百合海鷗號 Yurikamome</span>
+            <span class="r-station">有明テニスの森</span><span class="r-exit">U16</span><span class="r-arrow">→</span>
+            <span class="r-station">豊洲</span><span class="r-exit">H14</span>
+            <span class="r-meta">約6分・¥189</span>
+          </div>
+          <div class="transfer-row">乘換 日比谷線 ↓</div>
+          <div class="route-block">
+            <span class="ln ln-H">東京Metro 日比谷線 H</span>
+            <span class="r-station">豊洲</span><span class="r-exit">H14</span><span class="r-arrow">→</span>
+            <span class="r-station">上野</span><span class="r-exit">H17・3號出口 → 阿美橫丁</span>
+            <span class="r-meta">20分・¥240</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">18:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">阿美橫丁 Ameyoko 採買</div>
+          <div class="place-note">藥妝・零食・生鮮，距飯店步行3分</div>
+          <div class="shop-row">
+            <span class="shop-tag">💊 松本清 Matsumoto Kiyoshi</span>
+            <span class="shop-tag">🍬 二木の菓子 Futaki Candy</span>
+            <span class="shop-tag">🏬 多慶屋 Takeyashop（免稅）</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="tip-box">
       <div class="tip-title">👷 職人提示</div>
-      <div class="tip-text">KidZania 平日熱門職業等待時間短！早場一開門就衝。Small Worlds 全天候屋內，暑假不怕熱，可以邊吹冷氣邊慢慢逛。</div>
+      <div class="tip-text">KidZania 平日熱門職業等待時間短！07:40 準時報到非常重要。Small Worlds 全天候屋內，暑假不怕熱，可以邊吹冷氣邊慢慢逛。</div>
     </div>
   </div>
 </div>
 
-<!-- DAY 4 8/29 六 → teamLab + 未來館 -->
+<!-- ══ DAY 4 8/29 六 teamLab ══ -->
 <div class="day-card d4">
   <div class="day-header">
-    <div class="day-date">08月29日（六）· 🚪 出門 09:20</div>
+    <div class="day-date">08月29日（六）</div>
     <div class="day-title">科技與光影之日</div>
     <div class="day-subtitle">teamLab Planets · 日本科學未來館 · 台場</div>
     <div class="day-badge">🌌</div>
   </div>
   <div class="day-body">
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-H">東京Metro 日比谷線 H</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">H17・日比谷線 改札</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">豊洲（Toyosu）</span><span class="r-exit">H14・1號出口</span>
-        <span class="r-meta">20分・¥240・直達</span>
-      </div>
-      <div class="transfer-hint">↓ 豊洲 乘換 百合海鷗號 Yurikamome → 新豊洲（U14）</div>
-      <div class="route-block">
-        <span class="ln ln-U">百合海鷗號 Yurikamome</span>
-        <span class="r-station">豊洲（Toyosu）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">新豊洲（Shin-Toyosu）</span><span class="r-exit">U14・出站即 teamLab</span>
-        <span class="r-meta">1站・¥190</span>
-      </div>
-      <div class="item-row"><span class="time-badge">10:00</span><div>
-        <div class="place-name">teamLab Planets TOKYO（新豊洲 Shin-Toyosu）</div>
-        <div class="place-note">⚠️ 上午預約・赤腳入場・帶備用襪＋防水袋</div>
-        <div class="shop-row">
-          <span class="shop-tag">🌸 花之森 Forest of Flowers</span>
-          <span class="shop-tag">🌊 水の宇宙 Water Universe</span>
-          <span class="shop-tag">☁️ 無限水晶宇宙 Crystal Universe</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">09:20</div>
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">🚪 飯店出發</div>
+          <div class="place-note">步行 → 上野駅 日比谷線 改札</div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">13:00</span><div>
-        <div class="place-name">豊洲 LaLaport 午餐</div>
-        <div class="place-note">搭回豊洲站步行約5分・多元餐廳</div>
-        <div class="shop-row"><span class="shop-tag">🏬 LaLaport 豊洲（UNIQLO・無印良品 Muji）</span></div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-U">百合海鷗號 Yurikamome</span>
-        <span class="r-station">新豊洲（Shin-Toyosu）</span><span class="r-exit">U14</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">東京電訊（Telecom Center）</span><span class="r-exit">U11・出站即未來館</span>
-        <span class="r-meta">約10分・¥260</span>
       </div>
-      <div class="item-row"><span class="time-badge">14:30</span><div>
-        <div class="place-name">日本科学未来館 Miraikan（東京電訊站）</div>
-        <div class="place-note">機器人・AI・宇宙互動展示</div>
-        <div class="shop-row">
-          <span class="shop-tag">🤖 ASIMO 機器人展示</span>
-          <span class="shop-tag">🚀 宇宙探索區 Space Exploration</span>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-H">東京Metro 日比谷線 H</span>
+            <span class="r-station">上野</span><span class="r-exit">H17</span><span class="r-arrow">→</span>
+            <span class="r-station">豊洲</span><span class="r-exit">H14・1號出口</span>
+            <span class="r-meta">20分・¥240</span>
+          </div>
+          <div class="transfer-row">乘換 百合海鷗號 ↓</div>
+          <div class="route-block">
+            <span class="ln ln-U">百合海鷗號 Yurikamome</span>
+            <span class="r-station">豊洲</span><span class="r-arrow">→</span>
+            <span class="r-station">新豊洲（Shin-Toyosu）</span><span class="r-exit">U14・出站即 teamLab</span>
+            <span class="r-meta">1站・¥190</span>
+          </div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">18:00</span><div>
-        <div class="place-name">台場 Odaiba 海濱散步・晚餐</div>
-        <div class="place-note">步行即達・夕陽彩虹橋 Rainbow Bridge 夜景</div>
-        <div class="shop-row">
-          <span class="shop-tag">🏬 DiverCity Tokyo（鋼彈 Gundam 立像）</span>
-          <span class="shop-tag">🏬 Aqua City 台場</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">10:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name highlight">teamLab Planets TOKYO（新豊洲 U14）</div>
+          <div class="place-note">⚠️ 上午預約・赤腳入場・帶備用襪＋防水袋</div>
+          <div class="shop-row">
+            <span class="shop-tag">🌸 花之森 Forest of Flowers</span>
+            <span class="shop-tag">🌊 水の宇宙 Water Universe</span>
+            <span class="shop-tag">☁️ 無限水晶宇宙 Crystal Universe</span>
+          </div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-U">百合海鷗號 Yurikamome</span>
-        <span class="r-station">台場（Odaiba Kaihinkoen）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">新橋（Shimbashi）</span>
-        <span class="r-meta">約30分</span>
       </div>
-      <div class="transfer-hint">乘換 ↓ 步行5分 → 銀座駅</div>
-      <div class="route-block">
-        <span class="ln ln-H">東京Metro 日比谷線 H</span>
-        <span class="r-station">銀座（Ginza）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">H17</span>
-        <span class="r-meta">約15分</span>
+
+      <div class="tl-item">
+        <div class="tl-time">13:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">豊洲 LaLaport 午餐</div>
+          <div class="place-note">搭回豊洲站步行約5分</div>
+          <div class="shop-row"><span class="shop-tag">🏬 LaLaport 豊洲（UNIQLO・無印良品 Muji）</span></div>
+        </div>
       </div>
-      <div class="item-row"><span class="time-badge">20:30</span><div>
-        <div class="place-name">返回上野</div>
-      </div></div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-U">百合海鷗號 Yurikamome</span>
+            <span class="r-station">新豊洲</span><span class="r-exit">U14</span><span class="r-arrow">→</span>
+            <span class="r-station">東京電訊（Telecom Center）</span><span class="r-exit">U11・出站即未來館</span>
+            <span class="r-meta">約10分・¥260</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">14:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">日本科学未来館 Miraikan（東京電訊 U11）</div>
+          <div class="place-note">機器人・AI・宇宙互動展示</div>
+          <div class="shop-row">
+            <span class="shop-tag">🤖 ASIMO 機器人展示</span>
+            <span class="shop-tag">🚀 宇宙探索 Space Exploration</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">18:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">台場 Odaiba 海濱散步・晚餐</div>
+          <div class="place-note">步行即達・夕陽彩虹橋 Rainbow Bridge 夜景</div>
+          <div class="shop-row">
+            <span class="shop-tag">🏬 DiverCity Tokyo（鋼彈 Gundam 立像）</span>
+            <span class="shop-tag">🏬 Aqua City 台場</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-U">百合海鷗號 Yurikamome</span>
+            <span class="r-station">台場（Odaiba）</span><span class="r-arrow">→</span>
+            <span class="r-station">新橋（Shimbashi）</span>
+            <span class="r-meta">約30分</span>
+          </div>
+          <div class="transfer-row">步行5分 → 銀座駅 乘換 日比谷線 ↓</div>
+          <div class="route-block">
+            <span class="ln ln-H">東京Metro 日比谷線 H</span>
+            <span class="r-station">銀座（Ginza）</span><span class="r-arrow">→</span>
+            <span class="r-station">上野</span><span class="r-exit">H17</span>
+            <span class="r-meta">約15分</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">20:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">返回上野</div>
+        </div>
+      </div>
+
     </div>
     <div class="tip-box">
       <div class="tip-title">🌊 水波提示</div>
-      <div class="tip-text">穿方便穿脫的鞋・帶備用襪！百合海鷗號 Yurikamome 無人駕駛，坐最前排視野超棒。teamLab（新豊洲 U14）→ 未來館（東京電訊 U11）同線直達。</div>
+      <div class="tip-text">穿方便穿脫的鞋・帶備用襪！百合海鷗號無人駕駛，坐最前排視野超棒。teamLab（U14）→ 未來館（U11）同線直達。</div>
     </div>
   </div>
 </div>
 
-<!-- DAY 5 8/30 日 → 淺草 + 晴空塔 -->
+<!-- ══ DAY 5 8/30 日 淺草 ══ -->
 <div class="day-card d5">
   <div class="day-header">
-    <div class="day-date">08月30日（日）· 🚪 出門 10:15</div>
+    <div class="day-date">08月30日（日）</div>
     <div class="day-title">經典地標之日</div>
-    <div class="day-subtitle">晴空塔敘敘苑 · 淺草雷門 · 阿美橫丁</div>
+    <div class="day-subtitle">敘敘苑燒肉 · 晴空塔 · 淺草雷門 · 阿美橫丁</div>
     <div class="day-badge">🏯</div>
   </div>
   <div class="day-body">
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-G">東京Metro 銀座線 G</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">G16・1號出口</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">淺草（Asakusa）</span><span class="r-exit">G19・1號出口</span>
-        <span class="r-meta">5分・¥180</span>
-      </div>
-      <div class="transfer-hint">↓ 淺草駅 步行15分 沿隅田川 → 晴空塔 Solamachi</div>
-      <div class="route-block alt">
-        <span style="font-size:.64rem;color:#2168b2;font-weight:700;">☂️ 備案（避暑）</span>
-        <span class="ln ln-TB">東武晴空塔線 Tobu Skytree</span>
-        <span class="r-station">淺草（Asakusa）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">東京晴空塔（Tokyo Skytree）</span>
-        <span class="r-meta">1站・¥190・冷氣車廂</span>
-      </div>
-      <div class="item-row"><span class="time-badge">10:30</span><div>
-        <div class="place-name">敘敘苑 Jojoen 燒肉（Solamachi 6F）</div>
-        <div class="place-note">韓式燒肉午餐・假日建議提前預約！</div>
-        <div class="shop-row">
-          <span class="shop-tag">🥩 韓式燒肉 Korean BBQ</span>
-          <span class="shop-tag">🧄 石鍋拌飯 Bibimbap</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">10:15</div>
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">🚪 飯店出發</div>
+          <div class="place-note">步行 → 上野駅 銀座線 G16</div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">12:00</span><div>
-        <div class="place-name">東京晴空塔 Tokyo Skytree（同棟直達）</div>
-        <div class="place-note">天望台 Tembo Deck 350m・天望回廊 Tembo Galleria 450m・建議線上預約</div>
-        <div class="shop-row">
-          <span class="shop-tag">🛍 Tower Yard 商城</span>
-          <span class="shop-tag">🍱 Solamachi 美食街 B1</span>
-          <span class="shop-tag">⚡ 寶可夢中心 Pokémon Center Skytree Town（4F）</span>
-        </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-W">🚶 步行</span>
-        <span class="r-station">晴空塔 Skytree</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">淺草寺 雷門 Kaminarimon</span>
-        <span class="r-meta">約15分・隅田川河岸景觀路</span>
       </div>
-      <div class="route-block alt">
-        <span style="font-size:.64rem;color:#2168b2;font-weight:700;">☂️ 備案（避暑）</span>
-        <span class="ln ln-TB">東武晴空塔線 Tobu Skytree</span>
-        <span class="r-station">東京晴空塔（Tokyo Skytree）</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">淺草（Asakusa）</span>
-        <span class="r-meta">1站・¥190</span>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-G">東京Metro 銀座線 G</span>
+            <span class="r-station">上野</span><span class="r-exit">G16・1號出口</span><span class="r-arrow">→</span>
+            <span class="r-station">淺草</span><span class="r-exit">G19・1號出口</span>
+            <span class="r-meta">5分・¥180</span>
+          </div>
+          <div class="transfer-row">淺草駅 步行15分 沿隅田川 → 晴空塔 Solamachi（或東武晴空塔線1站・¥190）</div>
+        </div>
       </div>
-      <div class="item-row"><span class="time-badge">14:30</span><div>
-        <div class="place-name">淺草寺 雷門 Kaminarimon・仲見世通り</div>
-        <div class="place-note">假日人多沒關係，戶外景點盡情逛！</div>
-        <div class="shop-row">
-          <span class="shop-tag">🧁 亀屋 人形燒 Ningyo-yaki</span>
-          <span class="shop-tag">🍡 舟和 芋羊羹 Imo-yokan</span>
+
+      <div class="tl-item">
+        <div class="tl-time">10:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">敘敘苑 Jojoen 燒肉（Solamachi 6F）</div>
+          <div class="place-note">韓式燒肉午餐・假日建議提前預約！</div>
+          <div class="shop-row">
+            <span class="shop-tag">🥩 韓式燒肉 Korean BBQ</span>
+            <span class="shop-tag">🧄 石鍋拌飯 Bibimbap</span>
+          </div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-G">東京Metro 銀座線 G</span>
-        <span class="r-station">淺草（Asakusa）</span><span class="r-exit">G19</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">G16・3號出口 → 阿美橫丁</span>
-        <span class="r-meta">5分・¥180</span>
       </div>
-      <div class="item-row"><span class="time-badge">16:30</span><div>
-        <div class="place-name">阿美橫丁 Ameyoko 最終掃貨</div>
-        <div class="place-note">伴手禮・零食・藥妝最終確認</div>
-        <div class="shop-row">
-          <span class="shop-tag">💊 松本清 Matsumoto Kiyoshi</span>
-          <span class="shop-tag">🍬 二木の菓子 Futaki Candy</span>
-          <span class="shop-tag">🧴 AINZ&TULPE</span>
-          <span class="shop-tag">🏬 多慶屋 Takeyashop（免稅）</span>
+
+      <div class="tl-item">
+        <div class="tl-time">12:00</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name highlight">東京晴空塔 Tokyo Skytree（同棟直達）</div>
+          <div class="place-note">天望台 Tembo Deck 350m・天望回廊 450m・建議線上預約</div>
+          <div class="shop-row">
+            <span class="shop-tag">🛍 Tower Yard 商城</span>
+            <span class="shop-tag">🍱 Solamachi 美食街 B1</span>
+            <span class="shop-tag">⚡ 寶可夢中心 Pokémon Center Skytree Town（4F）</span>
+          </div>
         </div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">晚餐</span><div>
-        <div class="place-name">上野御徒町 悠閒晚餐</div>
-        <div class="place-note">最後一晚慢慢享用・餐後整理行李</div>
-        <div class="shop-row">
-          <span class="shop-tag">🍜 韓國料理街</span>
-          <span class="shop-tag">🍣 回転寿司 Kaiten-zushi</span>
-          <span class="shop-tag">🍺 居酒屋 Izakaya</span>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-W">🚶 步行</span>
+            <span class="r-station">晴空塔</span><span class="r-arrow">→</span>
+            <span class="r-station">淺草寺 雷門</span>
+            <span class="r-meta">約15分・隅田川河岸</span>
+          </div>
+          <div class="route-block alt" style="margin-top:.25rem;">
+            <span style="font-size:.63rem;color:#2168b2;font-weight:700;">☂️ 備案</span>
+            <span class="ln ln-TB">東武晴空塔線 Tobu</span>
+            <span class="r-station">東京晴空塔</span><span class="r-arrow">→</span>
+            <span class="r-station">淺草</span>
+            <span class="r-meta">1站・¥190</span>
+          </div>
         </div>
-      </div></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">14:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">淺草寺 雷門 Kaminarimon・仲見世通り</div>
+          <div class="place-note">假日人多沒關係，戶外景點盡情逛！</div>
+          <div class="shop-row">
+            <span class="shop-tag">🧁 亀屋 人形燒 Ningyo-yaki</span>
+            <span class="shop-tag">🍡 舟和 芋羊羹 Imo-yokan</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-G">東京Metro 銀座線 G</span>
+            <span class="r-station">淺草</span><span class="r-exit">G19</span><span class="r-arrow">→</span>
+            <span class="r-station">上野</span><span class="r-exit">G16・3號出口 → 阿美橫丁</span>
+            <span class="r-meta">5分・¥180</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">16:30</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">阿美橫丁 Ameyoko 最終掃貨</div>
+          <div class="place-note">伴手禮・零食・藥妝最終確認</div>
+          <div class="shop-row">
+            <span class="shop-tag">💊 松本清 Matsumoto Kiyoshi</span>
+            <span class="shop-tag">🍬 二木の菓子 Futaki Candy</span>
+            <span class="shop-tag">🧴 AINZ&TULPE</span>
+            <span class="shop-tag">🏬 多慶屋 Takeyashop（免稅）</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">晚餐</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">上野御徒町 悠閒晚餐</div>
+          <div class="place-note">最後一晚慢慢享用・餐後整理行李</div>
+          <div class="shop-row">
+            <span class="shop-tag">🍜 韓國料理街</span>
+            <span class="shop-tag">🍣 回転寿司 Kaiten-zushi</span>
+            <span class="shop-tag">🍺 居酒屋 Izakaya</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="tip-box">
       <div class="tip-title">🎒 打包提示</div>
-      <div class="tip-text">今晚完成行李收拾！明天 06:17 Skyliner，設兩個鬧鐘，05:00 起床，05:30 退房出發。晴空塔 Solamachi 4F 的寶可夢中心假日人多，建議下塔後馬上去買！</div>
+      <div class="tip-text">今晚完成行李收拾！明天 06:17 Skyliner，設兩個鬧鐘，05:00 起床，06:00 退房出發。寶可夢中心假日人多，下塔後馬上去買！</div>
     </div>
   </div>
 </div>
 
-<!-- DAY 6 8/31 一 → 回程 -->
+<!-- ══ DAY 6 8/31 回程 ══ -->
 <div class="day-card d6">
   <div class="day-header">
-    <div class="day-date">08月31日（一）· 🚪 出門 06:00</div>
+    <div class="day-date">08月31日（一）</div>
     <div class="day-title">回程台北</div>
     <div class="day-subtitle">上野 → 成田機場 → 台北</div>
     <div class="day-badge">✈️</div>
   </div>
   <div class="day-body">
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">05:00</span><div>
-        <div class="place-name">起床・退房準備</div>
-        <div class="place-note">確認護照・機票・行李・退稅單</div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="route-block">
-        <span class="ln ln-SK">Skyliner 特急</span>
-        <span class="r-station">上野（Ueno）</span><span class="r-exit">京成線 改札口 入</span>
-        <span class="r-arrow">→</span>
-        <span class="r-station">成田空港（Narita Airport）</span><span class="r-exit">第1・2航廈</span>
-        <span class="r-meta">06:17發・07:05抵・41分・¥2,570</span>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-time">05:00</div>
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">起床・退房準備</div>
+          <div class="place-note">確認護照・機票・行李・退稅單</div>
+        </div>
       </div>
-      <div class="item-row"><span class="time-badge">06:17</span><div>
-        <div class="place-name">Skyliner 發車</div>
-        <div class="place-note">⚠️ 最晚 05:50 抵達月台・對號座需事前購票</div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">07:05</span><div>
-        <div class="place-name">成田機場 抵達</div>
-        <div class="place-note">報到・安檢・出境・免稅補購・退稅辦理</div>
-      </div></div>
-    </div>
-    <div class="s-item">
-      <div class="item-row"><span class="time-badge">09:15</span><div>
-        <div class="place-name">✈️ 起飛 → 台北</div>
-        <div class="place-note">帶著魔法回憶，平安回家 🏠</div>
-      </div></div>
+
+      <div class="tl-item">
+        <div class="tl-time">06:00</div>
+        <div class="tl-dot depart"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">🚪 飯店出發</div>
+          <div class="place-note">步行5分 → 京成上野駅 改札口</div>
+        </div>
+      </div>
+
+      <div class="tl-item route-item">
+        <div class="tl-time"></div>
+        <div class="tl-dot route"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="route-block">
+            <span class="ln ln-SK">Skyliner 特急</span>
+            <span class="r-station">上野</span><span class="r-exit">京成改札口 入</span><span class="r-arrow">→</span>
+            <span class="r-station">成田空港</span><span class="r-exit">第1・2航廈</span>
+            <span class="r-meta">06:17発・07:05着・41分・¥2,570</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">07:05</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">成田機場 抵達</div>
+          <div class="place-note">報到・安檢・出境・免稅補購・退稅辦理</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time">09:15</div>
+        <div class="tl-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-content">
+          <div class="place-name">✈️ 起飛 → 台北</div>
+          <div class="place-note">帶著魔法回憶，平安回家 🏠</div>
+        </div>
+      </div>
+
     </div>
     <div class="tip-box">
       <div class="tip-title">🌅 回程提示</div>
@@ -604,7 +914,6 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
 <div class="ornament">✦ ⚡ ✦</div>
 <div style="text-align:center;font-family:'Cinzel',serif;font-size:.7rem;color:rgba(201,162,39,.4);letter-spacing:.15em;padding-bottom:1rem;">TOKYO MAGICAL JOURNEY · 2025</div>
 </div>
-
 <script>
 const s=document.getElementById('stars');
 for(let i=0;i<80;i++){
