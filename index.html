@@ -20,6 +20,41 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 .content{background:#0a0a14;padding:1rem .75rem 3rem;}
 .section-header{font-family:'Cinzel',serif;color:var(--gold);font-size:.75rem;letter-spacing:.2em;text-align:center;margin:1.5rem 0 1rem;}
+
+/* 簡易行程總覽卡片 */
+.summary-card{
+  background: var(--parchment);
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.5);
+}
+.summary-title{
+  font-family:'Cinzel',serif;
+  font-size:.88rem;
+  font-weight:700;
+  color:var(--ink);
+  text-align:center;
+  letter-spacing:.15em;
+  padding-bottom:.5rem;
+  margin-bottom:.65rem;
+  border-bottom:1px dashed rgba(166,124,0,.35);
+}
+.summary-list{display:flex;flex-direction:column;gap:.45rem;}
+.summary-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.82rem;
+  padding-bottom:.35rem;
+  border-bottom:1px dotted rgba(44,24,16,.12);
+}
+.summary-item:last-child{border-bottom:none;padding-bottom:0;}
+.sum-date{font-family:'Cinzel',serif;font-weight:700;color:var(--gold2);white-space:nowrap;margin-right:.6rem;}
+.sum-dest{font-weight:600;color:var(--ink2);text-align:right;}
+
+/* DAY CARD */
 .day-card{background:var(--parchment);border-radius:12px;margin-bottom:1.5rem;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.5);}
 .day-header{padding:1rem 1.25rem .75rem;position:relative;}
 .day-date{font-family:'Cinzel',serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;margin-bottom:.2rem;}
@@ -82,7 +117,23 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
   <div class="cover-dates">📅 2026年8月25日 — 8月31日<br><span style="font-size:.85rem;opacity:.7">台北 → 東京 上野</span></div>
   <div class="scroll-hint">↓ 展開魔法卷軸 ↓</div>
 </div>
+
 <div class="content">
+
+<!-- ══ 簡易行程總覽 ══ -->
+<div class="summary-card">
+  <div class="summary-title">✦ 魔法行程總覽 ✦</div>
+  <div class="summary-list">
+    <div class="summary-item"><span class="sum-date">8/25 (二)</span><span class="sum-dest">抵達東京 → 上野入住</span></div>
+    <div class="summary-item"><span class="sum-date">8/26 (三)</span><span class="sum-dest">哈利波特影城 → 池袋購物</span></div>
+    <div class="summary-item"><span class="sum-date">8/27 (四)</span><span class="sum-dest">大宮鐵道博物館全日遊</span></div>
+    <div class="summary-item"><span class="sum-date">8/28 (五)</span><span class="sum-dest">KidZania 職人 → 日本科學未來館</span></div>
+    <div class="summary-item"><span class="sum-date">8/29 (六)</span><span class="sum-dest">teamLab Planets → 17:30 醫美</span></div>
+    <div class="summary-item"><span class="sum-date">8/30 (日)</span><span class="sum-dest">敘敘苑燒肉 → 晴空塔 → 淺草雷門</span></div>
+    <div class="summary-item"><span class="sum-date">8/31 (一)</span><span class="sum-dest">成田機場 → 平安返台</span></div>
+  </div>
+</div>
+
 <div class="section-header">✦ 行程詳覽 ✦</div>
 
 <!-- 8/25 抵達 -->
@@ -115,8 +166,8 @@ body{background:#0a0a14;font-family:'Crimson Text',Georgia,serif;color:var(--ink
     <div class="timeline">
       <div class="tl-item"><div class="tl-time">08:20</div><div class="tl-dot depart"></div><div class="tl-content"><div class="place-name">🏨 飯店出發</div><div class="place-note">步行5分 → 上野御徒町駅 (E09)</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
       <div class="tl-item route-item"><div class="tl-time"></div><div class="tl-dot route"></div><div class="tl-content"><div class="route-block"><span class="ln ln-E">都營大江戸線 E</span><span class="r-station">上野御徒町 (E09)</span><span class="r-arrow">→</span><span class="r-station">豊島園 (E36)</span><span class="r-exit">改札出・影城直達</span><span class="r-meta">約30分・直達</span></div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
-      <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name highlight">哈利波特 Warner Bros. Studio Tokyo</div>
-        <div class="place-note">⏰ 2026年8月26日 09:00 入場・最晚 08:40 前報到<br>📍 1-1-7 Kasuga-cho, Nerima-ku, Tokyo<br>🚶 西武豊島線 豊島園駅 (SI02) 步行2分</div>
+      <div class="tl-item"><div class="tl-time">08:40</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name highlight">哈利波特 Warner Bros. Studio Tokyo</div>
+        <div class="place-note">⏰ 2026年8月26日 08:40 抵達報到・09:00 場次入場<br>📍 1-1-7 Kasuga-cho, Nerima-ku, Tokyo<br>🚶 西武豊島線 豊島園駅 (SI02) 步行2分</div>
         <div class="shop-row"><span class="shop-tag">🍺 奶油啤酒 Butterbeer</span><span class="shop-tag">🪄 禁忌森林 Forbidden Forest</span><span class="shop-tag">🦉 角色周邊</span></div>
         <div style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.4rem;">
           <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/lilycc0615/2026-tokyotrip/main/KlookHarryPotter-voucher.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:.3rem;background:#2c1810;color:#f5e6c8;font-family:'Cinzel',serif;font-size:.68rem;padding:.3rem .7rem;border-radius:6px;text-decoration:none;font-weight:600;">🎟 入場憑證 Klook Voucher</a>
