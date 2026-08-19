@@ -25,7 +25,6 @@ body{
   overflow-x:hidden;
 }
 
-/* 直式手機容器 */
 .app-container{
   width:100%;
   max-width:var(--app-max-width);
@@ -38,7 +37,7 @@ body{
 /* COVER */
 .cover{
   background:linear-gradient(165deg,#0a0a1a 0%,#180a29 45%,#0a160c 100%);
-  min-height:92vh;
+  min-height:90vh;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -85,6 +84,54 @@ body{
 
 /* 內容區塊 */
 .content{padding:1rem .85rem 3rem;}
+
+/* 航班資訊卡片 */
+.flight-card{
+  background:var(--parchment);
+  border:1px solid var(--gold);
+  border-radius:12px;
+  padding:1rem 1.1rem;
+  margin-bottom:1.15rem;
+  box-shadow:0 4px 16px rgba(0,0,0,.4);
+}
+.flight-title{
+  font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;
+  color:var(--ink);text-align:center;letter-spacing:.15em;
+  padding-bottom:.45rem;margin-bottom:.65rem;
+  border-bottom:1px dashed rgba(155,116,0,.35);
+}
+.flight-section{
+  padding:.55rem .65rem;
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(35,20,12,.1);
+  border-radius:8px;
+  margin-bottom:.55rem;
+}
+.flight-section:last-child{margin-bottom:0;}
+.flight-badge-row{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem;
+}
+.flight-type-badge{
+  font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;
+  background:var(--ink);color:var(--parchment);
+  padding:.12rem .45rem;border-radius:4px;
+}
+.flight-no{
+  font-family:'Cinzel',serif;font-weight:700;font-size:.78rem;color:var(--red);
+}
+.flight-main-row{
+  display:flex;justify-content:space-between;align-items:center;text-align:center;
+  margin:.2rem 0;
+}
+.flight-city{font-weight:700;font-size:1.15rem;color:var(--ink);line-height:1.2;}
+.flight-port{font-size:.68rem;color:#666;}
+.flight-arrow-col{display:flex;flex-direction:column;align-items:center;gap:.1rem;}
+.flight-time-dur{font-size:.62rem;color:var(--gold2);font-weight:700;font-family:'Cinzel',serif;}
+.flight-plane-icon{color:var(--gold2);font-size:.9rem;}
+.flight-detail-row{
+  display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink2);
+  margin-top:.35rem;padding-top:.35rem;border-top:1px dotted rgba(35,20,12,.15);
+}
 
 /* 簡易行程總覽 */
 .summary-card{
@@ -248,23 +295,80 @@ body{
     <div class="cover-shield">🦅</div>
     <div class="cover-title">東京魔法之旅</div>
     <div class="cover-sub">✦ 旅行者手冊 ✦</div>
-    <div class="cover-dates">📅 2026年8月25日 — 8月31日<br><span style="font-size:.85rem;opacity:.8">台北 → 東京 上野</span></div>
+    <div class="cover-dates">📅 2026年8月25日 — 8月31日<br><span style="font-size:.85rem;opacity:.8">台北 (TPE) ⇄ 東京 (NRT)</span></div>
     <div class="scroll-hint">↓ 展開魔法卷軸 ↓</div>
   </div>
 
   <div class="content">
 
-    <!-- 簡易行程總覽 -->
+    <!-- ══ 航班資訊卡片 ══ -->
+    <div class="flight-card">
+      <div class="flight-title">✈️ 航班資訊 · FLIGHT INFO</div>
+      
+      <!-- 去程 -->
+      <div class="flight-section">
+        <div class="flight-badge-row">
+          <span class="flight-type-badge">去程 · 08/25 (二)</span>
+          <span class="flight-no">酷航 TR 874 (B787-9)</span>
+        </div>
+        <div class="flight-main-row">
+          <div>
+            <div class="flight-city">15:30</div>
+            <div class="flight-port">TPE 桃園 T1</div>
+          </div>
+          <div class="flight-arrow-col">
+            <span class="flight-time-dur">3h 30m</span>
+            <span class="flight-plane-icon">✈</span>
+          </div>
+          <div>
+            <div class="flight-city">20:00</div>
+            <div class="flight-port">NRT 成田 T1</div>
+          </div>
+        </div>
+        <div class="flight-detail-row">
+          <span>訂單編號：<b>YHN4UH</b></span>
+          <span>旅客：2 成人 + 2 兒童</span>
+        </div>
+      </div>
+
+      <!-- 回程 -->
+      <div class="flight-section">
+        <div class="flight-badge-row">
+          <span class="flight-type-badge" style="background:#8b1a1a;">回程 · 08/31 (一)</span>
+          <span class="flight-no">捷星 GK 13 (A320-200)</span>
+        </div>
+        <div class="flight-main-row">
+          <div>
+            <div class="flight-city">09:15</div>
+            <div class="flight-port">NRT 成田 T3 ⚠️</div>
+          </div>
+          <div class="flight-arrow-col">
+            <span class="flight-time-dur">3h 55m</span>
+            <span class="flight-plane-icon">✈</span>
+          </div>
+          <div>
+            <div class="flight-city">12:10</div>
+            <div class="flight-port">TPE 桃園 T1</div>
+          </div>
+        </div>
+        <div class="flight-detail-row">
+          <span>代表乘客：CHUANG WEN-HSIU</span>
+          <span style="color:var(--red);font-weight:700;">注意：成田第3航廈出發</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 簡易行程總覽 ══ -->
     <div class="summary-card">
       <div class="summary-title">✦ 魔法行程總覽 ✦</div>
       <div class="summary-list">
-        <div class="summary-item"><span class="sum-date">8/25 (二)</span><span class="sum-dest">抵達東京 → 上野入住</span></div>
+        <div class="summary-item"><span class="sum-date">8/25 (二)</span><span class="sum-dest">抵達東京 (20:00 NRT T1) → 上野</span></div>
         <div class="summary-item"><span class="sum-date">8/26 (三)</span><span class="sum-dest">哈利波特影城 → 池袋購物</span></div>
         <div class="summary-item"><span class="sum-date">8/27 (四)</span><span class="sum-dest">大宮鐵道博物館全日遊</span></div>
         <div class="summary-item"><span class="sum-date">8/28 (五)</span><span class="sum-dest">KidZania 職人 → 日本科學未來館</span></div>
         <div class="summary-item"><span class="sum-date">8/29 (六)</span><span class="sum-dest">teamLab Planets → 17:30 醫美</span></div>
         <div class="summary-item"><span class="sum-date">8/30 (日)</span><span class="sum-dest">敘敘苑燒肉 → 晴空塔 → 淺草雷門</span></div>
-        <div class="summary-item"><span class="sum-date">8/31 (一)</span><span class="sum-dest">成田機場 → 平安返台</span></div>
+        <div class="summary-item"><span class="sum-date">8/31 (一)</span><span class="sum-dest">成田 T3 (09:15) → 平安返台</span></div>
       </div>
     </div>
 
@@ -275,16 +379,29 @@ body{
       <div class="day-header">
         <div class="day-date">08月25日（二）</div>
         <div class="day-title">抵達東京</div>
-        <div class="day-subtitle">成田機場 (NRT) → 上野 (KS01) · 入住</div>
+        <div class="day-subtitle">酷航 TR 874 (TPE 15:30 → NRT 20:00 T1)</div>
         <div class="day-badge">🌙</div>
       </div>
       <div class="day-body">
         <div class="timeline">
-          <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">成田機場 (NRT) 抵達</div><div class="place-note">提領行李・辦 Suica IC 卡・兌換日幣</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
-          <div class="tl-item route-item"><div class="tl-time"></div><div class="tl-dot route"></div><div class="tl-content"><div class="route-block"><span class="ln ln-SK">Skyliner 特急</span><span class="r-station">成田空港 (KS41)</span><span class="r-arrow">→</span><span class="r-station">京成上野 (KS01)</span><span class="r-exit">改札口 出</span><span class="r-meta">41分・¥2,570</span></div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
-          <div class="tl-item"><div class="tl-time">21:45</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">抵達 Hop Inn 上野</div><div class="place-note">京成上野 (KS01) / JR 上野 (JY05/JK30) 不忍口出站 → 步行約5分・上野 6 丁目</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
+          <div class="tl-item"><div class="tl-time">20:00</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">成田機場 第1航廈 (NRT T1) 抵達</div><div class="place-note">提領行李・辦 Suica IC 卡・兌換日幣</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
+          
+          <div class="tl-item route-item"><div class="tl-time"></div><div class="tl-dot route"></div><div class="tl-content">
+            <div class="route-block">
+              <span class="ln ln-SK">Skyliner 特急</span>
+              <span class="r-station">成田空港 T1 (KS41)</span><span class="r-arrow">→</span><span class="r-station">京成上野 (KS01)</span>
+              <span class="r-meta">¥2,570</span>
+            </div>
+            <div class="place-note" style="margin-top:.25rem;">
+              🚅 <b>首選：</b>21:00 發 → 21:47 抵<br>
+              🚅 <b>備案 1：</b>21:20 發 → 22:09 抵<br>
+              🚅 <b>備案 2：</b>21:40 發 → 22:28 抵
+            </div>
+          </div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
+
+          <div class="tl-item"><div class="tl-time">22:00</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">抵達 Hop Inn 上野</div><div class="place-note">京成上野 (KS01) 不忍口出站 → 步行約5分・上野 6 丁目</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
         </div>
-        <div class="tip-box"><div class="tip-title">🌙 入住提示</div><div class="tip-text">Skyliner 對號座，建議官網預約。Suica IC 卡在機場 2F 自動售票機辦理，全程刷卡最方便。飯店步行5分可達上野御徒町站 (E09/G15/H17)，交通超便利！</div></div>
+        <div class="tip-box"><div class="tip-title">🌙 入住提示</div><div class="tip-text">出關領完行李後直接至 B1 京成電鐵櫃台或售票機取票。飯店樓下即阿美橫丁，隨時可吃消夜！</div></div>
       </div>
     </div>
 
@@ -403,7 +520,7 @@ body{
           <div class="tl-item"><div class="tl-time">16:30</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">阿美橫丁 Ameyoko 最終掃貨</div><div class="place-note">伴手禮・零食・藥妝最終確認</div><div class="shop-row"><span class="shop-tag">💊 松本清</span><span class="shop-tag">🍬 二木の菓子</span><span class="shop-tag">🧴 AINZ&TULPE</span><span class="shop-tag">🏬 多慶屋（免稅）</span></div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
           <div class="tl-item"><div class="tl-time">晚餐</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">上野御徒町 悠閒晚餐</div><div class="place-note">最後一晚慢慢享用・餐後整理行李</div><div class="shop-row"><span class="shop-tag">🍜 韓國料理街</span><span class="shop-tag">🍣 回転寿司</span><span class="shop-tag">🍺 居酒屋</span></div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
         </div>
-        <div class="tip-box"><div class="tip-title">🎒 打包提示</div><div class="tip-text">今晚完成行李收拾！明天 06:17 Skyliner，設兩個鬧鐘，05:00 起床，06:00 退房出發。寶可夢中心假日人多，下塔後馬上去買！</div></div>
+        <div class="tip-box"><div class="tip-title">🎒 打包提示</div><div class="tip-text">今晚完成行李收拾！明天 Skyliner 最早 06:00 發車，捷星在第3航廈 (T3)，設好鬧鐘早起退房出發。</div></div>
       </div>
     </div>
 
@@ -412,18 +529,31 @@ body{
       <div class="day-header">
         <div class="day-date">08月31日（一）</div>
         <div class="day-title">回程台北</div>
-        <div class="day-subtitle">上野 (KS01) → 成田機場 (KS41) → 台北</div>
+        <div class="day-subtitle">捷星 GK 13 (NRT 09:15 T3 → TPE 12:10 T1)</div>
         <div class="day-badge">✈️</div>
       </div>
       <div class="day-body">
         <div class="timeline">
           <div class="tl-item"><div class="tl-time">05:00</div><div class="tl-dot depart"></div><div class="tl-content"><div class="place-name">起床・退房準備</div><div class="place-note">確認護照・機票・行李・退稅單</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
-          <div class="tl-item"><div class="tl-time">06:00</div><div class="tl-dot depart"></div><div class="tl-content"><div class="place-name">🏨 飯店出發</div><div class="place-note">步行5分 → 京成上野駅 (KS01) 改札口</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
-          <div class="tl-item route-item"><div class="tl-time"></div><div class="tl-dot route"></div><div class="tl-content"><div class="route-block"><span class="ln ln-SK">Skyliner 特急</span><span class="r-station">京成上野 (KS01)</span><span class="r-arrow">→</span><span class="r-station">成田空港 (KS41)</span><span class="r-exit">第1・2航廈</span><span class="r-meta">06:17發・07:05着・41分・¥2,570</span></div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
-          <div class="tl-item"><div class="tl-time">07:05</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">成田機場 (NRT) 抵達</div><div class="place-note">報到・安檢・出境・免稅補購・退稅辦理</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
-          <div class="tl-item"><div class="tl-time">09:15</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">✈️ 起飛 → 台北</div><div class="place-note">帶著魔法回憶，平安回家 🏠</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
+          <div class="tl-item"><div class="tl-time">05:45</div><div class="tl-dot depart"></div><div class="tl-content"><div class="place-name">🏨 飯店出發</div><div class="place-note">步行5分 → 京成上野駅 (KS01) 改札口</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
+          
+          <div class="tl-item route-item"><div class="tl-time"></div><div class="tl-dot route"></div><div class="tl-content">
+            <div class="route-block">
+              <span class="ln ln-SK">Skyliner 特急</span>
+              <span class="r-station">京成上野 (KS01)</span><span class="r-arrow">→</span><span class="r-station">空港第2ビル (KS40)</span>
+              <span class="r-meta">¥2,570</span>
+            </div>
+            <div class="place-note" style="margin-top:.25rem;">
+              🚅 <b>首選：</b>06:00 發 → 06:44 抵（推薦！時間最充裕）<br>
+              🚅 <b>備案：</b>06:20 發 → 07:08 抵<br>
+              ⚠️ <b>注意：</b>捷星在 <b>第3航廈 (T3)</b>！請在「空港第2ビル駅 (KS40)」下車，走聯絡通道或搭免費接駁巴士約5–8分至 T3。
+            </div>
+          </div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
+
+          <div class="tl-item"><div class="tl-time">07:00</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">成田機場 第3航廈 (NRT T3) 抵達</div><div class="place-note">捷星 GK 13 櫃台報到・託運行李・安檢出境</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
+          <div class="tl-item"><div class="tl-time">09:15</div><div class="tl-dot"></div><div class="tl-content"><div class="place-name">✈️ 起飛 → 台北桃園 (TPE T1 12:10 抵達)</div><div class="place-note">帶著滿滿魔法回憶，平安回家 🏠</div></div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
         </div>
-        <div class="tip-box"><div class="tip-title">🌅 回程提示</div><div class="tip-text">到機場先辦行李託運，再去免稅店補購。退稅記得出境前辦理，別白白損失！</div></div>
+        <div class="tip-box"><div class="tip-title">🌅 回程重點提示</div><div class="tip-text">捷星航空於第3航廈起飛，關閘時間較嚴格，強烈建議搭乘 06:00 的 Skyliner，提早抵達 T3 託運與出境！</div></div>
       </div>
     </div>
 
