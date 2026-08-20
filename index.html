@@ -247,7 +247,7 @@ body{
 .place-name.highlight{font-size:1rem;font-weight:700;color:var(--ink);}
 .place-note{font-size:.76rem;color:var(--ink2);font-style:italic;margin-top:.18rem;line-height:1.38;}
 
-/* 醒目嵌入式提示 (取代底部易忽略的盒子) */
+/* 醒目嵌入式提示 */
 .inline-alert{
   background:rgba(201,162,39,.18);
   border-left:3px solid var(--gold2);
@@ -281,6 +281,7 @@ body{
   font-family:'Cinzel',serif;font-size:.68rem;font-weight:600;
   padding:.4rem .75rem;border-radius:6px;text-decoration:none;
   box-shadow:0 2px 6px rgba(0,0,0,.2);
+  cursor:pointer;border:none;width:100%;
 }
 .btn-voucher:active{transform:scale(0.98);opacity:.9;}
 .btn-voucher.gold{background:var(--gold2);color:#fff;}
@@ -486,8 +487,8 @@ body{
                 <span class="shop-tag">🦉 角色周邊</span>
               </div>
               <div style="margin-top:.5rem;display:flex;flex-direction:column;gap:.35rem;">
-                <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/lilycc0615/2026-tokyotrip/main/KlookHarryPotter-voucher.pdf" target="_blank" class="btn-voucher">🎟 入場憑證 Klook Voucher</a>
-                <a href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/lilycc0615/2026-tokyotrip/main/KlookHarryPotter-coupon.pdf" target="_blank" class="btn-voucher gold">🛍 購物券 JPY 1,000 Coupon</a>
+                <button type="button" class="btn-voucher" onclick="openSecureDoc('https://docs.google.com/viewer?url=https://raw.githubusercontent.com/lilycc0615/2026-tokyotrip/main/KlookHarryPotter-voucher.pdf')">🔒 🎟 入場憑證 Klook Voucher</button>
+                <button type="button" class="btn-voucher gold" onclick="openSecureDoc('https://docs.google.com/viewer?url=https://raw.githubusercontent.com/lilycc0615/2026-tokyotrip/main/KlookHarryPotter-coupon.pdf')">🔒 🛍 購物券 JPY 1,000 Coupon</button>
               </div>
               <div class="inline-alert red">⚠️ 購物券僅限 Main Shop 使用・單筆滿¥1,000 方可使用・不可於自助結帳櫃檯使用</div>
             </div>
@@ -700,7 +701,7 @@ body{
                 <span class="shop-tag">🏥 醫生・消防員</span>
               </div>
               <div style="margin-top:.5rem;">
-                <a href="https://d3e8ogs60q6bjk.cloudfront.net/file/agents/voucher/A2608035003/voucher_T4-05638-1385434916093920_2026-08-03.pdf" target="_blank" class="btn-voucher">🎟 入場憑證 Voucher PDF</a>
+                <button type="button" class="btn-voucher" onclick="openSecureDoc('https://d3e8ogs60q6bjk.cloudfront.net/file/agents/voucher/A2608035003/voucher_T4-05638-1385434916093920_2026-08-03.pdf')">🔒 🎟 入場憑證 Voucher PDF</button>
               </div>
             </div>
             <div class="tl-time-fill"></div><div class="tl-line"></div>
@@ -1080,12 +1081,24 @@ body{
 </div>
 
 <script>
-const s=document.getElementById('stars');
-for(let i=0;i<65;i++){
-  const d=document.createElement('div');d.className='star';
-  const sz=Math.random()*2.2+.5;
-  d.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s`;
+// 星空背景動畫
+const s = document.getElementById('stars');
+for (let i = 0; i < 65; i++) {
+  const d = document.createElement('div');
+  d.className = 'star';
+  const sz = Math.random() * 2.2 + 0.5;
+  d.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random() * 100}%;left:${Math.random() * 100}%;animation-delay:${Math.random() * 3}s;animation-duration:${2 + Math.random() * 3}s`;
   s.appendChild(d);
+}
+
+// 通關密碼驗證函式
+function openSecureDoc(url) {
+  const pwd = prompt("請輸入通關密碼：");
+  if (pwd === "0615") {
+    window.open(url, "_blank");
+  } else if (pwd !== null) {
+    alert("❌ 密碼錯誤，無法開啟憑證！");
+  }
 }
 </script>
 </body>
