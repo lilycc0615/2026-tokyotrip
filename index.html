@@ -34,103 +34,96 @@ body{
   position:relative;
 }
 
-/* COVER */
+/* COMPACT COVER */
 .cover{
   background:linear-gradient(165deg,#0a0a1a 0%,#180a29 45%,#0a160c 100%);
-  min-height:90vh;
+  padding:1.5rem 1.25rem 1rem;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:2rem 1.25rem;
   position:relative;
   overflow:hidden;
   text-align:center;
+  border-bottom:1px solid rgba(201,162,39,.2);
 }
 .stars{position:absolute;inset:0;pointer-events:none;}
 .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite;}
 @keyframes twinkle{0%,100%{opacity:.2}50%{opacity:1}}
 .cover-shield{
-  width:88px;height:105px;
+  width:60px;height:72px;
   background:linear-gradient(180deg,var(--gold),var(--gold2));
   clip-path:polygon(15% 0%,85% 0%,100% 60%,50% 100%,0% 60%);
   display:flex;align-items:center;justify-content:center;
-  font-size:2.2rem;margin-bottom:1.25rem;
-  filter:drop-shadow(0 4px 14px rgba(201,162,39,.65));
+  font-size:1.6rem;margin-bottom:.55rem;
+  filter:drop-shadow(0 3px 10px rgba(201,162,39,.6));
 }
 .cover-title{
   font-family:'Cinzel',serif;color:var(--gold);
-  font-size:1.9rem;font-weight:700;line-height:1.25;
-  text-shadow:0 0 16px rgba(201,162,39,.5),2px 2px 4px rgba(0,0,0,.9);
-  margin-bottom:.4rem;letter-spacing:.05em;
+  font-size:1.6rem;font-weight:700;line-height:1.2;
+  text-shadow:0 0 14px rgba(201,162,39,.5),2px 2px 4px rgba(0,0,0,.9);
+  margin-bottom:.25rem;letter-spacing:.05em;
 }
 .cover-sub{
   font-family:'Cinzel',serif;color:#ba9975;
-  font-size:.85rem;letter-spacing:.18em;margin-bottom:1.75rem;
+  font-size:.78rem;letter-spacing:.16em;margin-bottom:.65rem;
 }
 .cover-dates{
   background:rgba(201,162,39,.12);
-  border:1px solid rgba(201,162,39,.45);
-  border-radius:8px;padding:.65rem 1.25rem;
-  color:#dcc196;font-size:.95rem;font-style:italic;line-height:1.4;
+  border:1px solid rgba(201,162,39,.4);
+  border-radius:6px;padding:.4rem 1rem;
+  color:#dcc196;font-size:.85rem;font-style:italic;line-height:1.3;
 }
-.scroll-hint{
-  position:absolute;bottom:1.5rem;
-  color:rgba(201,162,39,.65);font-size:.78rem;
-  font-family:'Cinzel',serif;letter-spacing:.12em;
-  animation:bounce 2s infinite;
-}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
 /* 內容區塊 */
-.content{padding:1rem .85rem 3rem;}
+.content{padding:.85rem .85rem 3rem;}
 
 /* 航班資訊卡片 */
 .flight-card{
   background:var(--parchment);
   border:1px solid var(--gold);
   border-radius:12px;
-  padding:1rem 1.1rem;
-  margin-bottom:1.15rem;
+  padding:.9rem 1rem;
+  margin-bottom:1.1rem;
   box-shadow:0 4px 16px rgba(0,0,0,.4);
 }
 .flight-title{
-  font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;
+  font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;
   color:var(--ink);text-align:center;letter-spacing:.15em;
-  padding-bottom:.45rem;margin-bottom:.65rem;
+  padding-bottom:.4rem;margin-bottom:.55rem;
   border-bottom:1px dashed rgba(155,116,0,.35);
 }
 .flight-section{
-  padding:.55rem .65rem;
+  padding:.5rem .6rem;
   background:rgba(255,255,255,.55);
   border:1px solid rgba(35,20,12,.1);
   border-radius:8px;
-  margin-bottom:.55rem;
+  margin-bottom:.5rem;
 }
 .flight-section:last-child{margin-bottom:0;}
 .flight-badge-row{
-  display:flex;justify-content:space-between;align-items:center;margin-bottom:.35rem;
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:.3rem;
 }
 .flight-type-badge{
-  font-family:'Cinzel',serif;font-size:.65rem;font-weight:700;
+  font-family:'Cinzel',serif;font-size:.63rem;font-weight:700;
   background:var(--ink);color:var(--parchment);
-  padding:.12rem .45rem;border-radius:4px;
+  padding:.1rem .4rem;border-radius:4px;
 }
 .flight-no{
-  font-family:'Cinzel',serif;font-weight:700;font-size:.78rem;color:var(--red);
+  font-family:'Cinzel',serif;font-weight:700;font-size:.76rem;color:var(--red);
 }
 .flight-main-row{
   display:flex;justify-content:space-between;align-items:center;text-align:center;
-  margin:.2rem 0;
+  margin:.15rem 0;
 }
-.flight-city{font-weight:700;font-size:1.15rem;color:var(--ink);line-height:1.2;}
-.flight-port{font-size:.68rem;color:#666;}
+.flight-city{font-weight:700;font-size:1.1rem;color:var(--ink);line-height:1.2;}
+.flight-port{font-size:.65rem;color:#666;}
 .flight-arrow-col{display:flex;flex-direction:column;align-items:center;gap:.1rem;}
-.flight-time-dur{font-size:.62rem;color:var(--gold2);font-weight:700;font-family:'Cinzel',serif;}
-.flight-plane-icon{color:var(--gold2);font-size:.9rem;}
+.flight-time-dur{font-size:.6rem;color:var(--gold2);font-weight:700;font-family:'Cinzel',serif;}
+.flight-plane-icon{color:var(--gold2);font-size:.85rem;}
 .flight-detail-row{
-  display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink2);
-  margin-top:.35rem;padding-top:.35rem;border-top:1px dotted rgba(35,20,12,.15);
+  display:flex;justify-content:space-between;font-size:.7rem;color:var(--ink2);
+  margin-top:.3rem;padding-top:.3rem;border-top:1px dotted rgba(35,20,12,.15);
 }
 
 /* 簡易行程總覽 */
@@ -138,20 +131,20 @@ body{
   background:var(--parchment);
   border:1px solid var(--gold);
   border-radius:12px;
-  padding:1rem 1.1rem;
-  margin-bottom:1.25rem;
+  padding:.9rem 1rem;
+  margin-bottom:1.2rem;
   box-shadow:0 4px 16px rgba(0,0,0,.4);
 }
 .summary-title{
-  font-family:'Cinzel',serif;font-size:.88rem;font-weight:700;
+  font-family:'Cinzel',serif;font-size:.85rem;font-weight:700;
   color:var(--ink);text-align:center;letter-spacing:.15em;
-  padding-bottom:.45rem;margin-bottom:.55rem;
+  padding-bottom:.4rem;margin-bottom:.5rem;
   border-bottom:1px dashed rgba(155,116,0,.35);
 }
-.summary-list{display:flex;flex-direction:column;gap:.4rem;}
+.summary-list{display:flex;flex-direction:column;gap:.35rem;}
 .summary-item{
   display:flex;justify-content:space-between;align-items:center;
-  font-size:.82rem;padding-bottom:.3rem;
+  font-size:.8rem;padding-bottom:.25rem;
   border-bottom:1px dotted rgba(35,20,12,.12);
 }
 .summary-item:last-child{border-bottom:none;padding-bottom:0;}
@@ -161,7 +154,7 @@ body{
 .section-header{
   font-family:'Cinzel',serif;color:var(--gold);
   font-size:.78rem;letter-spacing:.22em;text-align:center;
-  margin:1.5rem 0 1rem;
+  margin:1.35rem 0 .9rem;
 }
 
 /* DAY CARD */
@@ -172,15 +165,15 @@ body{
   overflow:hidden;
   box-shadow:0 4px 16px rgba(0,0,0,.45);
 }
-.day-header{padding:.9rem 1.1rem .75rem;position:relative;}
+.day-header{padding:.85rem 1rem .7rem;position:relative;}
 .day-date{font-family:'Cinzel',serif;font-size:.75rem;font-weight:600;letter-spacing:.1em;margin-bottom:.15rem;}
 .day-title{font-family:'Cinzel',serif;font-size:1.18rem;font-weight:700;line-height:1.25;}
 .day-subtitle{font-size:.8rem;font-style:italic;margin-top:.18rem;opacity:.85;}
 .day-badge{
-  position:absolute;top:.85rem;right:.9rem;
-  width:34px;height:34px;border-radius:50%;
+  position:absolute;top:.8rem;right:.85rem;
+  width:32px;height:32px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.15rem;background:rgba(255,255,255,.15);
+  font-size:1.1rem;background:rgba(255,255,255,.15);
 }
 .d0 .day-header{background:linear-gradient(135deg,#1a1a3e,#2a1a4e);color:#e8d5a0;}
 .d1 .day-header{background:linear-gradient(135deg,#1a2e3e,#1a3a5a);color:#a0d0f0;}
@@ -270,11 +263,20 @@ body{
   display:inline-flex;align-items:center;justify-content:center;
   gap:.35rem;background:#23140c;color:#f7eedb;
   font-family:'Cinzel',serif;font-size:.7rem;font-weight:600;
-  padding:.45rem .85rem;border-radius:6px;text-decoration:none;
+  padding:.42rem .8rem;border-radius:6px;text-decoration:none;
   box-shadow:0 2px 6px rgba(0,0,0,.2);
 }
 .btn-voucher:active{transform:scale(0.98);opacity:.9;}
 .btn-voucher.gold{background:var(--gold2);color:#fff;}
+
+.btn-timetable{
+  display:inline-flex;align-items:center;gap:.3rem;
+  background:rgba(190,0,38,.08);border:1px solid rgba(190,0,38,.3);
+  color:#be0026;font-size:.68rem;font-weight:700;
+  padding:.22rem .55rem;border-radius:15px;text-decoration:none;
+  margin-top:.3rem;
+}
+.btn-timetable:active{background:rgba(190,0,38,.16);}
 
 .tip-box{
   background:rgba(201,162,39,.12);border:1px solid rgba(201,162,39,.35);
@@ -289,14 +291,13 @@ body{
 
 <div class="app-container">
 
-  <!-- 封面 -->
+  <!-- 緊湊版封面 -->
   <div class="cover">
     <div class="stars" id="stars"></div>
     <div class="cover-shield">🦅</div>
     <div class="cover-title">東京魔法之旅</div>
     <div class="cover-sub">✦ 旅行者手冊 ✦</div>
-    <div class="cover-dates">📅 2026年8月25日 — 8月31日<br><span style="font-size:.85rem;opacity:.8">台北 (TPE) ⇄ 東京 (NRT)</span></div>
-    <div class="scroll-hint">↓ 展開魔法卷軸 ↓</div>
+    <div class="cover-dates">📅 2026年8月25日 — 8月31日<br><span style="font-size:.82rem;opacity:.85">台北 (TPE) ⇄ 東京 (NRT)</span></div>
   </div>
 
   <div class="content">
@@ -396,6 +397,9 @@ body{
               🚅 <b>首選：</b>21:00 發 → 21:47 抵<br>
               🚅 <b>備案 1：</b>21:20 發 → 22:09 抵<br>
               🚅 <b>備案 2：</b>21:40 發 → 22:28 抵
+            </div>
+            <div>
+              <a href="https://keisei.ekitan.com/naritaacs-i-tc/timetable/station/682-7/d1?dw=0" target="_blank" class="btn-timetable">⏱️ 成田→上野 Skyliner 時刻表</a>
             </div>
           </div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
 
@@ -547,6 +551,9 @@ body{
               🚅 <b>首選：</b>06:00 發 → 06:44 抵（推薦！時間最充裕）<br>
               🚅 <b>備案：</b>06:20 發 → 07:08 抵<br>
               ⚠️ <b>注意：</b>捷星在 <b>第3航廈 (T3)</b>！請在「空港第2ビル駅 (KS40)」下車，走聯絡通道或搭免費接駁巴士約5–8分至 T3。
+            </div>
+            <div>
+              <a href="https://keisei.ekitan.com/naritaacs-i-tc/timetable/station/682-6/d2" target="_blank" class="btn-timetable">⏱️ 上野→成田 Skyliner 時刻表</a>
             </div>
           </div><div class="tl-time-fill"></div><div class="tl-line"></div></div>
 
